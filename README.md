@@ -5,7 +5,7 @@ The container provided by Koken uses nginx and php-fpm, but also provides its ow
 # How to use this image
 
 ```console
-$ docker run --name some-koken --hostname koken.example.com --link some-mysql:mysql -p 80:80 -d wordpress
+$ docker run --name some-koken --hostname koken.example.com --link some-mysql:mysql -p 80:80 -d nicokaiser/koken
 ```
 
 The `hostname` must be accessible from inside the container, so it must be the hostname that is visible from the outside (for lookback connections).
