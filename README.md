@@ -1,6 +1,6 @@
-# Docker container with Koken and Apache
+# Koken Docker Image
 
-The container provided by Koken uses nginx and php-fpm, but also provides its own MySQL instance. This container is meant to be lightweight and extensible, uses the current PHP version and can be linked with an external MySQL/MariaDB instance.
+The image uses PHP 7.1 and Apache for deploying Koken in a Docker environment. This container is meant to be lightweight and extensible, uses the current PHP version and can be linked with an external MySQL/MariaDB instance.
 
 # How to use this image
 
@@ -18,18 +18,18 @@ Example `docker-compose.yml`:
 
 ```yaml
 version: '2'
-
 services:
-
   koken:
-    image: nicokaiser/koken
+    image: nicokaiser/koken:php7.1-apache
+    hostname: koken.example.com
     ports:
       - 80:80
     volumes:
-      - /srv/docker/koken/html:/var/www/html
-
-  mysql:
+      - koken_data:/var/www/html
+  mariadb:
     image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: example
+volumes:
+  koken_data:
 ```

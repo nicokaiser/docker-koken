@@ -1,10 +1,8 @@
 FROM php:7.1-apache
 
-RUN echo deb http://http.debian.net/debian jessie-backports main >> /etc/apt/sources.list.d/backports.list
-
 RUN apt-get update && apt-get install -y \
     graphicsmagick graphicsmagick-imagemagick-compat \
-    pwgen wget unzip ffmpeg libcurl4-gnutls-dev \
+    pwgen wget unzip libcurl4-gnutls-dev \
     libmcrypt4 libmcrypt-dev zlib1g zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 

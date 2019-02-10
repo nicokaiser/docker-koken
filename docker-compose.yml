@@ -1,0 +1,15 @@
+version: '2'
+services:
+  koken:
+    image: nicokaiser/koken:php7.1-apache
+    hostname: koken.example.com
+    ports:
+      - 80:80
+    volumes:
+      - koken_data:/var/www/html
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+volumes:
+  koken_data:
