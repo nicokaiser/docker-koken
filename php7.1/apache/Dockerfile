@@ -26,9 +26,12 @@ RUN touch /usr/local/etc/php/conf.d/uploads.ini \
 
 VOLUME /var/www/html
 
-RUN curl -fsSL -o /usr/local/src/Koken_Installer.zip \
-        "https://s3.amazonaws.com/koken-installer/releases/Koken_Installer.zip" \
-    && unzip -d /usr/local/src /usr/local/src/Koken_Installer.zip \
+ADD https://s3.amazonaws.com/koken-installer/releases/Koken_Installer.zip /usr/local/src/Koken_Installer.zip
+ADD https://s3.amazonaws.com/koken-installer/releases/pclzip.lib.txt /usr/local/src/pclzip.lib.php
+ADD https://s3.amazonaws.com/koken-installer/releases/latest.zip /usr/local/src/core.zip
+ADD https://koken-store.s3.amazonaws.com/plugins/be1cb2d9-ed05-2d81-85b4-23282832eb84.zip /usr/local/src/elementary.zip
+
+RUN unzip -d /usr/local/src /usr/local/src/Koken_Installer.zip \
     && rm /usr/local/src/Koken_Installer.zip
 
 COPY docker-entrypoint.sh /usr/local/bin/
