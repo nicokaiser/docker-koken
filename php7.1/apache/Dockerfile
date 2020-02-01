@@ -2,10 +2,11 @@ FROM php:7.1-apache
 
 RUN apt-get update && apt-get install -y \
     graphicsmagick graphicsmagick-imagemagick-compat \
-    pwgen wget unzip libcurl4-gnutls-dev libpng-dev \
+    pwgen wget unzip libcurl4-gnutls-dev libpng-dev libjpeg62-turbo-dev \
     libmcrypt4 libmcrypt-dev zlib1g zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
 
+RUN docker-php-ext-configure gd --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install curl exif mcrypt mysqli pdo_mysql zip gd
 
 # set recommended PHP.ini settings
