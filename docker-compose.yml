@@ -1,7 +1,7 @@
 version: '2'
 services:
   koken:
-    image: nicokaiser/koken:php7.1-apache
+    image: nicokaiser/koken:php7.3-apache
     hostname: koken.example.com
     ports:
       - 80:80

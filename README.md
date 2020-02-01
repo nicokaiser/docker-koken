@@ -1,6 +1,6 @@
 # Koken Docker Image
 
-The image uses PHP 7.1 and Apache for deploying Koken in a Docker environment. This container is meant to be lightweight and extensible, uses the current PHP version and can be linked with an external MySQL/MariaDB instance.
+The image uses PHP 7 and Apache for deploying Koken in a Docker environment. This container is meant to be lightweight and extensible, uses the current PHP version and can be linked with an external MySQL/MariaDB instance.
 
 # How to use this image
 
@@ -20,7 +20,7 @@ Example `docker-compose.yml`:
 version: '2'
 services:
   koken:
-    image: nicokaiser/koken:php7.1-apache
+    image: nicokaiser/koken:php7.3-apache
     hostname: koken.example.com
     ports:
       - 80:80
